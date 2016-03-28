@@ -2,7 +2,7 @@
 #include "ui_xsd.h"
 
 #include <QXmlStreamReader> // cteni xml do tableWidget
-#include <QXmlQuery>        // podpora xslt, QT += xmlpatterns
+#include <QXmlQuery>        // podpora xslt, potreba pridat QT += xmlpatterns
 #include <QFileDialog>
 #include <QMessageBox>
 #include <QCheckBox>
