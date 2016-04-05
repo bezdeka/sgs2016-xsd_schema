@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/files">
+        <file>examples/my1example.xsd</file>
+        <file>examples/my2example.xsd</file>
+        <file>examples/output.xsd</file>
+    </qresource>
+</RCC>

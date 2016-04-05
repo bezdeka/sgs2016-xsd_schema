@@ -36,7 +36,8 @@ void xsd::on_actionExit_triggered()
 void xsd::on_action_Read_XSD_schema_triggered()
 {
     // pro urychleni testovani nastaveno naprimo
-    QFile file("/home/bezdeka/OxygenXMLEditor/myexample/my2example.xsd");
+    QFile file(":/files/examples/my1example.xsd");
+    //QFile file(":/files/examples/my2example.xsd");
     file.open(QIODevice::ReadOnly);
 
     QFont font_bold("Ubuntu", 11, QFont::Bold);
@@ -177,13 +178,16 @@ void xsd::XSLT_run(QString stylesheet){
     // pokud spoustim xslt, musim mit ukonceny stylesheet
     stylesheet += "</xsl:stylesheet>";
 
-    QFile newXSD("/home/bezdeka/Documents/cpp/XSDschema/new_example.xsd");
+    QFile newXSD(":/files/examples/output.xsd");
+
     newXSD.open(QIODevice::WriteOnly);
+    qDebug() << newXSD.open(QIODevice::WriteOnly); // !!! neumim zapisovat do Qt Resources
 
     QXmlQuery query(QXmlQuery::XSLT20);
 
     // zdrojovy xsd - nutno propojit s radkem 39 (aby byly stejny)
-    query.setFocus(QUrl("/home/bezdeka/OxygenXMLEditor/myexample/my2example.xsd"));
+    query.setFocus(QUrl("qrc:/files/examples/my1example.xsd"));
+    //query.setFocus(QUrl("qrc:/files/examples/my2example.xsd"));
 
     // vygenerovany xslt stylesheet, podle ktereho transformuji
     query.setQuery(stylesheet);

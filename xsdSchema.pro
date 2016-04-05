@@ -18,3 +18,6 @@ SOURCES += main.cpp\
 HEADERS  += xsd.h
 
 FORMS    += xsd.ui
+
+RESOURCES += \
+    examples.qrc

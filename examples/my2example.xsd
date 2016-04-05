@@ -1,15 +1,558 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
-
-    <xs:element name="carareWrap">
-        <xs:annotation>
-            <xs:documentation xml:lang="en">The CARARE wrapper element. It wraps CARARE elements.</xs:documentation>
-        </xs:annotation>
-        <xs:complexType name="brb">
-            <xs:sequence>
-                <xs:element names="test" minOccurs="1" maxOccurs="unbounded" ref="carare" refer="brb"/>
-            </xs:sequence>
-        </xs:complexType>
-    </xs:element>
-    <xs:annotation />
+<xs:schema targetNamespace="urn:cz:isvs:ruian:schemas:VFCiselnikyTypy:v1" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="urn:cz:isvs:ruian:schemas:VFCiselnikyTypy:v1" xmlns:vfc="urn:cz:isvs:ruian:schemas:VFCiselnikyTypy:v1" xmlns:base="urn:cz:isvs:ruian:schemas:BaseTypy:v1" xmlns:com="urn:cz:isvs:ruian:schemas:CommonTypy:v1" xmlns:vf="urn:cz:isvs:ruian:schemas:VymennyFormatTypy:v1" elementFormDefault="qualified" version="2.0.0">
+	<xs:annotation>
+		<xs:documentation xml:lang="cs">Aplikační schéma výměnného formátu číselníků.</xs:documentation>
+	</xs:annotation>
+	<xs:import namespace="urn:cz:isvs:ruian:schemas:VymennyFormatTypy:v1" schemaLocation="../../../ruian/xsd/vymenny_format/VymennyFormatTypy.xsd"/>
+	<xs:import namespace="urn:cz:isvs:ruian:schemas:CommonTypy:v1" schemaLocation="../../../ruian/xsd/typy/CommonTypy.xsd"/>
+	<xs:import namespace="urn:cz:isvs:ruian:schemas:BaseTypy:v1" schemaLocation="../../../ruian/xsd/typy/BaseTypy.xsd"/>
+	<xs:complexType name="VfPripojeniVodyType">
+		<xs:annotation>
+			<xs:documentation xml:lang="cs">Pripojeni vody typ.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Kod" type="base:Kod4Type" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Nazev" type="base:Nazev255Type" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Zkratka" type="base:Nazev50Type" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Popis" type="base:Text4000Type" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="ZacatekPlatnosti" type="base:DatumCasType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="KonecPlatnosti" type="base:DatumCasType" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="VfVybaveniVytahemType">
+		<xs:annotation>
+			<xs:documentation xml:lang="cs">Vybavení výtahem typ.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Kod" type="base:Kod4Type" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Nazev" type="base:Nazev255Type" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Zkratka" type="base:Nazev50Type" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Popis" type="base:Text4000Type" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="ZacatekPlatnosti" type="base:DatumCasType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="KonecPlatnosti" type="base:DatumCasType" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="VfZpusobVytapeniType">
+		<xs:annotation>
+			<xs:documentation xml:lang="cs">Zpusob vytapeni typ.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Kod" type="base:Kod4Type" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Nazev" type="base:Nazev255Type" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Zkratka" type="base:Nazev50Type" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Popis" type="base:Text4000Type" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="ZacatekPlatnosti" type="base:DatumCasType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="KonecPlatnosti" type="base:DatumCasType" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="VfZpusobVyuzitiObjektuType">
+		<xs:annotation>
+			<xs:documentation xml:lang="cs">Zpusob využití objektu typ.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Kod" type="base:Kod4Type" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Nazev" type="base:Nazev255Type" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Zkratka" type="base:Nazev50Type" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Popis" type="base:Text4000Type" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="ZacatekPlatnosti" type="base:DatumCasType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="KonecPlatnosti" type="base:DatumCasType" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="VfPripojeniPlynuType">
+		<xs:annotation>
+			<xs:documentation xml:lang="cs">Pripojeni plynu typ.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Kod" type="base:Kod4Type" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Nazev" type="base:Nazev255Type" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Zkratka" type="base:Nazev50Type" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Popis" type="base:Text4000Type" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="ZacatekPlatnosti" type="base:DatumCasType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="KonecPlatnosti" type="base:DatumCasType" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="VfTypStavebnihoObjektuType">
+		<xs:annotation>
+			<xs:documentation xml:lang="cs">Typ stavebního objektu typ.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Kod" type="base:Kod1Type" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Nazev" type="base:Nazev255Type" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Zkratka" type="base:Nazev50Type" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Popis" type="base:Text4000Type" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="ZacatekPlatnosti" type="base:DatumCasType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="KonecPlatnosti" type="base:DatumCasType" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="VfCharakterZSJType">
+		<xs:annotation>
+			<xs:documentation xml:lang="cs">Charaktr ZSJ typ.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Kod" type="base:Kod4Type" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Nazev" type="base:Nazev255Type" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Zkratka" type="base:Nazev50Type" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Popis" type="base:Text4000Type" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="ZacatekPlatnosti" type="base:DatumCasType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="KonecPlatnosti" type="base:DatumCasType" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="VfStatusObceType">
+		<xs:annotation>
+			<xs:documentation xml:lang="cs">Status obce typ.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Kod" type="base:Kod2Type" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Nazev" type="base:Nazev255Type" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Zkratka" type="base:Nazev50Type" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Popis" type="base:Text4000Type" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="ZacatekPlatnosti" type="base:DatumCasType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="KonecPlatnosti" type="base:DatumCasType" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="VfCleneniSmRozsahType">
+		<xs:annotation>
+			<xs:documentation xml:lang="cs">Cleneni SM rozsah typ.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Kod" type="base:Kod2Type" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Nazev" type="base:Nazev255Type" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Zkratka" type="base:Nazev50Type" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Popis" type="base:Text4000Type" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="ZacatekPlatnosti" type="base:DatumCasType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="KonecPlatnosti" type="base:DatumCasType" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="VfCleneniSmTypType">
+		<xs:annotation>
+			<xs:documentation xml:lang="cs">Cleneni SM typ typ.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Kod" type="base:Kod2Type" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Nazev" type="base:Nazev255Type" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Zkratka" type="base:Nazev50Type" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Popis" type="base:Text4000Type" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="ZacatekPlatnosti" type="base:DatumCasType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="KonecPlatnosti" type="base:DatumCasType" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="VfBpejType">
+		<xs:annotation>
+			<xs:documentation xml:lang="cs">BPEJ typ.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Kod" type="base:Kod5Type" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Nazev" type="base:Nazev255Type" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Zkratka" type="base:Nazev50Type" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Popis" type="base:Text4000Type" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="ZacatekPlatnosti" type="base:DatumCasType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="KonecPlatnosti" type="base:DatumCasType" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="VfDruhCislovaniParcelType">
+		<xs:annotation>
+			<xs:documentation xml:lang="cs">Druh číslování parcel typ.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Kod" type="base:Kod2Type" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Nazev" type="base:Nazev255Type" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Zkratka" type="base:Nazev50Type" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Popis" type="base:Text4000Type" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="ZacatekPlatnosti" type="base:DatumCasType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="KonecPlatnosti" type="base:DatumCasType" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="VfDruhPozemkuType">
+		<xs:annotation>
+			<xs:documentation xml:lang="cs">Druh pozemku typ.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Kod" type="base:Kod2Type" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Nazev" type="base:Nazev255Type" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Zkratka" type="base:Nazev50Type" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Popis" type="base:Text4000Type" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="ZacatekPlatnosti" type="base:DatumCasType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="KonecPlatnosti" type="base:DatumCasType" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="VfZpusobVyuzitiPozemkuType">
+		<xs:annotation>
+			<xs:documentation xml:lang="cs">Zpusob využití pozemku typ.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Kod" type="base:Kod4Type" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Nazev" type="base:Nazev255Type" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Zkratka" type="base:Nazev50Type" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Popis" type="base:Text4000Type" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="ZacatekPlatnosti" type="base:DatumCasType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="KonecPlatnosti" type="base:DatumCasType" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="VfTypOchranyType">
+		<xs:annotation>
+			<xs:documentation xml:lang="cs">Typ ochrany typ.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Kod" type="base:Kod4Type" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Nazev" type="base:Nazev255Type" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Zkratka" type="base:Nazev50Type" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Popis" type="base:Text4000Type" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="ZacatekPlatnosti" type="base:DatumCasType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="KonecPlatnosti" type="base:DatumCasType" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="VfZpusobOchranyType">
+		<xs:annotation>
+			<xs:documentation xml:lang="cs">Způsob ochrany typ.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Kod" type="base:Kod4Type" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Nazev" type="base:Nazev255Type" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Zkratka" type="base:Nazev50Type" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Popis" type="base:Text4000Type" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="ZacatekPlatnosti" type="base:DatumCasType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="KonecPlatnosti" type="base:DatumCasType" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="VfTypPrvkuType">
+		<xs:annotation>
+			<xs:documentation xml:lang="cs">Typ prvku.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Kod" type="base:Nazev3Type" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Nazev" type="base:Nazev255Type" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Zkratka" type="base:Nazev50Type" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Popis" type="base:Text4000Type" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="ZacatekPlatnosti" type="base:DatumCasType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="KonecPlatnosti" type="base:DatumCasType" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="VfAdresniPostaSeznamType">
+		<xs:annotation>
+			<xs:documentation xml:lang="cs">Adresní pošta seznam typ.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="AdresniPosta" type="VfAdresniPostaType" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="VfStatusObceSeznamType">
+		<xs:annotation>
+			<xs:documentation xml:lang="cs">Status obce seznam typ.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="StatusObce" type="VfStatusObceType" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="VfCleneniSmRozsahSeznamType">
+		<xs:annotation>
+			<xs:documentation xml:lang="cs">Cleneni SM rozsah seznam typ.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="CleneniSmRozsah" type="VfCleneniSmRozsahType" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="VfCleneniSmTypSeznamType">
+		<xs:annotation>
+			<xs:documentation xml:lang="cs">Cleneni SM typ seznam typ.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="CleneniSmTyp" type="VfCleneniSmTypType" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="VfBpejSeznamType">
+		<xs:annotation>
+			<xs:documentation xml:lang="cs">BPEJ seznam typ.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Bpej" type="VfBpejType" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="VfDruhCislovaniParcelSeznamType">
+		<xs:annotation>
+			<xs:documentation xml:lang="cs">Druh číslování parcel seznam typ.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="DruhCislovaniParcel" type="VfDruhCislovaniParcelType" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="VfDruhPozemkuSeznamType">
+		<xs:annotation>
+			<xs:documentation xml:lang="cs">Druh pozemku seznam typ.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="DruhPozemku" type="VfDruhPozemkuType" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="VfZpusobVyuzitiPozemkuSeznamType">
+		<xs:annotation>
+			<xs:documentation xml:lang="cs">Zpusob využití pozemku seznam typ.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="ZpusobVyuzitiPozemku" type="VfZpusobVyuzitiPozemkuType" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="VfTypOchranySeznamType">
+		<xs:annotation>
+			<xs:documentation xml:lang="cs">Typ ochrany seznam typ.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="TypOchrany" type="VfTypOchranyType" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="VfZpusobOchranySeznamType">
+		<xs:annotation>
+			<xs:documentation xml:lang="cs">Způsob ochrany seznam typ.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="ZpusobOchrany" type="VfZpusobOchranyType" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="VfTypPrvkuSeznamType">
+		<xs:annotation>
+			<xs:documentation xml:lang="cs">Typ prvku seznam typ.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="TypPrvku" type="VfTypPrvkuType" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="VfAdresniPostaType">
+		<xs:annotation>
+			<xs:documentation xml:lang="cs">Adresní pošta typ.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Kod" type="com:VfPscType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Nazev" type="base:Nazev255Type" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Zkratka" type="base:Nazev50Type" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Popis" type="base:Text4000Type" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="ZacatekPlatnosti" type="base:DatumCasType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="KonecPlatnosti" type="base:DatumCasType" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="VfDruhKonstrukceType">
+		<xs:annotation>
+			<xs:documentation xml:lang="cs">Druh konstrukce typ.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Kod" type="base:Kod4Type" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Nazev" type="base:Nazev255Type" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Zkratka" type="base:Nazev50Type" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Popis" type="base:Text4000Type" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="ZacatekPlatnosti" type="base:DatumCasType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="KonecPlatnosti" type="base:DatumCasType" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="VfPripojeniKanalizaceType">
+		<xs:annotation>
+			<xs:documentation xml:lang="cs">Pripojeni kanala typ.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Kod" type="base:Kod4Type" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Nazev" type="base:Nazev255Type" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Zkratka" type="base:Nazev50Type" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Popis" type="base:Text4000Type" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="ZacatekPlatnosti" type="base:DatumCasType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="KonecPlatnosti" type="base:DatumCasType" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="VfPripojeniPlynuSeznamType">
+		<xs:annotation>
+			<xs:documentation xml:lang="cs">Pripojeni plynu seznam typ.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PripojeniPlynu" type="VfPripojeniPlynuType" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="VFCiselnik" type="vfc:VFCiselnikType">
+		<xs:annotation>
+			<xs:documentation xml:lang="cs">Výměnný formát číselníků.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="VFCiselnikType">
+		<xs:annotation>
+			<xs:documentation xml:lang="cs">Základní typ výměnného formátu číselníků.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Hlavicka" type="vf:HlavickaVymennyFormatType" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="cs">Hlavička výměnného formátu číselníku.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Data" type="VFCiselnikDataType" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="cs">Data výměnného formátu číselníku.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="VFCiselnikDataType">
+		<xs:annotation>
+			<xs:documentation xml:lang="cs">Data výměnného formátu.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="DruhyKonstrukci" type="VfDruhKonstrukceSeznamType" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="cs">Seznam druhů konstrukce.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PripojeniKanalizace" type="VfPripojeniKanalizaceSeznamType" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="cs">Seznam připojení kanálu.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PripojeniPlynu" type="VfPripojeniPlynuSeznamType" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="cs">Seznam připojení plynu.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PripojeniVody" type="VfPripojeniVodySeznamType" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="cs">Seznam připojení vody.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="VybaveniVytahu" type="VfVybaveniVytahemSeznamType" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="cs">Seznam vybavení výtahem.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ZpusobyVytapeni" type="VfZpusobVytapeniSeznamType" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="cs">Seznam způsobu vytápění.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ZpusobyVyuzitiObjektu" type="VfZpusobVyuzitiObjektuSeznamType" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="cs">Seznam způsobu využití stavebního objektu.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TypyStavebnichObjektu" type="VfTypStavebObjektuSeznamType" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="cs">Seznam typů stavebního objektu.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CharakteryZSJ" type="VfCharakterZSJSeznamType" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="cs">Seznam charakterů ZSJ.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="StatusObci" type="VfStatusObceSeznamType" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="cs">Seznam statusů obce.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CleneniSmRozsahu" type="VfCleneniSmRozsahSeznamType" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="cs">Seznam členení rozsahu statutárního města.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CleneniSmTypu" type="VfCleneniSmTypSeznamType" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="cs">Seznam členení typu statutárního města.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Bpej" type="VfBpejSeznamType" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="cs">Seznam bonitných dílů parcely.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DruhyCislovaniParcel" type="VfDruhCislovaniParcelSeznamType" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="cs">Seznam druhů číslování parcel.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DruhyPozemku" type="VfDruhPozemkuSeznamType" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="cs">Seznam druhů pozemku. </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ZpusobyVyuzitiPozemku" type="VfZpusobVyuzitiPozemkuSeznamType" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="cs">Seznam zpúsobu využití pozemku.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TypyOchrany" type="VfTypOchranySeznamType" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="cs">Seznam typů ochrany.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ZpusobyOchrany" type="VfZpusobOchranySeznamType" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="cs">Seznam způsobu ochrany.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TypyPrvku" type="VfTypPrvkuSeznamType" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="cs">Seznam typů prvku.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AdresniPosty" type="VfAdresniPostaSeznamType" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="cs">Seznam adresních pošt.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="VfDruhKonstrukceSeznamType">
+		<xs:annotation>
+			<xs:documentation xml:lang="cs">Druh konstrukce seznam typ.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="DruhKonstrukce" type="VfDruhKonstrukceType" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="VfPripojeniKanalizaceSeznamType">
+		<xs:annotation>
+			<xs:documentation xml:lang="cs">Pripojeni kanalizace seznam typ.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PripojeniKanalizace" type="VfPripojeniKanalizaceType" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="VfPripojeniVodySeznamType">
+		<xs:annotation>
+			<xs:documentation xml:lang="cs">Pripojeni vody seznam typ.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PripojeniVody" type="VfPripojeniVodyType" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="VfVybaveniVytahemSeznamType">
+		<xs:annotation>
+			<xs:documentation xml:lang="cs">Vybavení výtahem seznam typ.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="VybaveniVytahem" type="VfVybaveniVytahemType" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="VfZpusobVytapeniSeznamType">
+		<xs:annotation>
+			<xs:documentation xml:lang="cs">Zpusob vytapeni seznam typ.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="ZpusobVytapeni" type="VfZpusobVytapeniType" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="VfZpusobVyuzitiObjektuSeznamType">
+		<xs:annotation>
+			<xs:documentation xml:lang="cs">Zpusob využití objektu seznam typ.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="ZpusobVyuzitiObjektu" type="VfZpusobVyuzitiObjektuType" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="VfTypStavebObjektuSeznamType">
+		<xs:annotation>
+			<xs:documentation xml:lang="cs">Typ stavebního objektu seznam  typ.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="TypStavebnihoObjektu" type="VfTypStavebnihoObjektuType" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="VfCharakterZSJSeznamType">
+		<xs:annotation>
+			<xs:documentation xml:lang="cs">Charaktr ZSJ seznam typ.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="CharakterZSJ" type="VfCharakterZSJType" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
 </xs:schema>
